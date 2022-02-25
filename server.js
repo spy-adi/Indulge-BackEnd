@@ -1,11 +1,61 @@
 const express = require("express");
 const app=express();
 const db=require("./models");
+
+
+const PORT = process.env.PORT||5000;
+
+
+const btechProgRoute = require("./routes/btechProgRoute");
+const companyDetailsRoute = require("./routes/companyDetailsRoute");
+const ddIntProgsRoute = require("./routes/ddIntProgsRoute");
+const infHrDetailsRoute = require("./routes/infHrDetailsRoute");
+const infRoute = require("./routes/infRoute");
+const internDetailsRoute = require("./routes/internDetailsRoute");
+const internSelectionProcedureRoute = require("./routes/internSelectionProcedureRoute");
+const jnfHrDetailsRoute = require("./routes/jnfHrDetailsRoute");
+const jnfRoute = require("./routes/jnfRoute");
+const jobSelectionProcedureRoute = require("./routes/jobSelectionProcedureRoute");
+const mbaProgRoute = require("./routes/mbaProgRoute");
+const mscProgRoute = require("./routes/mscProgRoute");
+const mtechProgRoute = require("./routes/mtechProgRoute");
+const phdProgRoute = require("./routes/phdProgRoute");
+const salaryDetailsRoute = require("./routes/salaryDetailsRoute");
+const skillBasedProgRoute = require("./routes/skillBasedProgRoute");
+
+
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+
+
 //routes
-const PORT = process.env.PORT||5000;
+app.use("/api/btechProg", btechProgRoute);
+app.use("/api/companyDetails", companyDetailsRoute);
+app.use("/api/ddIntProgs", ddIntProgsRoute);
+app.use("/api/infHrDetails", infHrDetailsRoute);
+app.use("/api/inf", infRoute);
+app.use("/api/internDetails", internDetailsRoute);
+app.use("/api/internSelectionProcedure", internSelectionProcedureRoute);
+app.use("/api/jnfHrDetails", jnfHrDetailsRoute);
+app.use("/api/jnf", jnfRoute);
+app.use("/api/jobSelectionProcedure", jobSelectionProcedureRoute);
+app.use("/api/mbaProg", mbaProgRoute);
+app.use("/api/mscProg", mscProgRoute);
+app.use("/api/mtechProg", mtechProgRoute);
+app.use("/api/phdProg", phdProgRoute);
+app.use("/api/salaryDetails", salaryDetailsRoute);
+app.use("/api/skillBasedProg", skillBasedProgRoute);
+
+
+
+
+
+
+
+
+
+
 db.sequelize.sync({force:true})
 .then(()=>{
     app.listen(PORT,()=>{
@@ -15,3 +65,6 @@ db.sequelize.sync({force:true})
 .catch((err)=>{
     console.error(err);
 });
+
+
+
