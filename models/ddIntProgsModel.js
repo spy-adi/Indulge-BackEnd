@@ -1,5 +1,5 @@
 module.exports = (sequelize,DataTypes)=>{
-    const DdIntProg = sequelize.define("ddIntProg",{
+    const DdIntProg = sequelize.define("ddIntProgs",{
         courseId:{
             type:DataTypes.TEXT,
             allowNull:false
