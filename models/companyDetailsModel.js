@@ -1,9 +1,9 @@
 module.exports = (sequelize,DataTypes)=>{
     const CompanyDetails = sequelize.define("companyDetails",{
-        cid:{
-            type:DataTypes.STRING,
-            primaryKey:true
-        },
+        // cid:{
+        //     type:DataTypes.STRING,
+        //     primaryKey:true
+        // },
         cname:{
             type:DataTypes.STRING,
             allowNull:false

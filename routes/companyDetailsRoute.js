@@ -11,7 +11,7 @@ const {
 // const auth = require("../middleware/auth")
 
 router.get("/getAllCompanyDetails",getAllCompanyDetails);
-router.get("/addCompanyDetails",addCompanyDetails);
+router.post("/addCompanyDetails",addCompanyDetails);
 router.get("/:id",getOneCompanyDetails);
 router.put("/:id",updateCompanyDetails);
 router.delete("/:id",deleteCompanyDetails);

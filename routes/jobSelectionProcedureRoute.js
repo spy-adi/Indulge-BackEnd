@@ -7,7 +7,7 @@ const {
     getOneJobSelectionProcedure,
     updateJobSelectionProcedure,
     deleteJobSelectionProcedure
-} = require("../controllers/jspController");
+} = require("../controllers/jobSelectionProcedureController");
 // const auth = require("../middleware/auth")
 
 router.get("/getAllJobSelectionProcedure",getAllJobSelectionProcedure);

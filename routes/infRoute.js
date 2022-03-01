@@ -7,7 +7,7 @@ const {
     getOneInf,
     updateInf,
     deleteInf
-} = require("../controllers/btechProgController");
+} = require("../controllers/infController");
 // const auth = require("../middleware/auth")
 
 router.get("/getAllInf",getAllInf);

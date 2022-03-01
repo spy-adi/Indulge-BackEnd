@@ -7,7 +7,7 @@ const {
     getOneInternSelectionProcedure,
     updateInternSelectionProcedure,
     deleteInternSelectionProcedure
-} = require("../controllers/ispController");
+} = require("../controllers/internSelectionProcedureController");
 // const auth = require("../middleware/auth")
 
 router.get("/getAllInternSelectionProcedure",getAllInternSelectionProcedure);

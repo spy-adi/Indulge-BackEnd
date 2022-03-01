@@ -1,11 +1,8 @@
 const express = require("express");
+const auth = require("./middleware/auth");
 const app=express();
 const db=require("./models");
-
-
-const PORT = process.env.PORT||5000;
-
-
+const authRoute = require("./routes/auth");
 const btechProgRoute = require("./routes/btechProgRoute");
 const companyDetailsRoute = require("./routes/companyDetailsRoute");
 const ddIntProgsRoute = require("./routes/ddIntProgsRoute");
@@ -23,13 +20,12 @@ const phdProgRoute = require("./routes/phdProgRoute");
 const salaryDetailsRoute = require("./routes/salaryDetailsRoute");
 const skillBasedProgRoute = require("./routes/skillBasedProgRoute");
 
-
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-
 //routes
+app.use("/api/auth",authRoute);
 app.use("/api/btechProg", btechProgRoute);
 app.use("/api/companyDetails", companyDetailsRoute);
 app.use("/api/ddIntProgs", ddIntProgsRoute);
@@ -47,15 +43,7 @@ app.use("/api/phdProg", phdProgRoute);
 app.use("/api/salaryDetails", salaryDetailsRoute);
 app.use("/api/skillBasedProg", skillBasedProgRoute);
 
-
-
-
-
-
-
-
-
-
+const PORT = process.env.PORT||5000;
 db.sequelize.sync({force:true})
 .then(()=>{
     app.listen(PORT,()=>{
