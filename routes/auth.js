@@ -13,8 +13,8 @@ const CompanyDetails = db.companyDetails;
 
 router.get("/",auth,async(req,res)=>{
     try {
-        let cid = req.company.id;
-        const company = await CompanyDetails.findOne({where:{cid}});
+        let id = req.user.id;
+        const company = await CompanyDetails.findOne({where:{id}});
         res.json(company);
     } catch (error) {
         console.error(error.message);
@@ -27,19 +27,19 @@ router.get("/",auth,async(req,res)=>{
 //@access  public
 
 router.post("/",async(req,res)=>{
-    const {cid,password} = req.body;
+    const {cemail,cpassword} = req.body;
     try {
-        let company = await CompanyDetails.findOne({where:{cid}});
-        if(!user){
+        let company = await CompanyDetails.findOne({where:{cemail}});
+        if(!company){
             return res.status(404).json({msg:"Invalid Credentials"});
     }
-    const isMatch = await bcrypt.compare(password,company.password);
+    const isMatch = await bcrypt.compare(cpassword,company.cpassword);
     if(!isMatch){
         return res.status(400).json({msg:"Invalid Credentials"});
     }
     const payload = {
-        company:{
-            id:company.id
+        cid:{
+            id:company.dataValues.id
         }
     }
     jwt.sign(payload,process.env.SECRET,{expiresIn:3600},(err,token)=>{

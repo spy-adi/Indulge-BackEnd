@@ -18,7 +18,7 @@ module.exports = (sequelize,DataTypes)=>{
         },
         category:{
             type:DataTypes.TEXT,
-            allowNull:false
+            defaultValue:"Other"
         },
         curl:{
             type:DataTypes.TEXT,
