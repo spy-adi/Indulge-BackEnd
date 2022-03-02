@@ -44,7 +44,7 @@ app.use("/api/salaryDetails", salaryDetailsRoute);
 app.use("/api/skillBasedProg", skillBasedProgRoute);
 
 const PORT = process.env.PORT||5000;
-db.sequelize.sync({force:false})
+db.sequelize.sync({force:true})
 .then(()=>{
     app.listen(PORT,()=>{
         console.log("server listening on port 5000");

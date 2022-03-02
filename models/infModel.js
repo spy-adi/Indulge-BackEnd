@@ -19,6 +19,41 @@ module.exports = (sequelize,DataTypes)=>{
         },
         graduation_year:{
             type:DataTypes.TEXT
+        },
+        stipend:{
+            type:DataTypes.TEXT,
+            allowNull:false
+        },
+        ppo:{
+            type:DataTypes.TEXT
+        },
+        ctc:{
+            type:DataTypes.TEXT
+        },
+        resume_shortlisting:{
+            type:DataTypes.BOOLEAN,
+            allowNull:false
+        },
+        type_of_test:{
+            type:DataTypes.ENUM,
+            values:["Technical","Aptitude","Both","None"],
+            allowNull:false
+        },
+        other_qualify_rounds:{
+            type:DataTypes.ENUM,
+            values:["GD","Case Study","Interview"],
+            allowNull:false
+        },
+        total_rounds:{
+            type:DataTypes.INTEGER
+        },
+        no_of_offers:{
+            type:DataTypes.TEXT,
+            allowNull:false
+        },
+        eligibilty_criteria:{
+            type:DataTypes.TEXT,
+            allowNull:false
         }
     });
     return Inf;
